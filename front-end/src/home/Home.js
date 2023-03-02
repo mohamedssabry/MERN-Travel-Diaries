@@ -1,6 +1,6 @@
 import { Box, Button, Typography } from "@mui/material";
 import React from "react";
-import road from "../assests/road.jpg";
+import road from "../assets/road.jpg";
 import { Link } from "react-router-dom";
 
 function Home() {

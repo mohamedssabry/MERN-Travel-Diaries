@@ -7,6 +7,7 @@ import Header from "./header/Header";
 import Home from "./home/Home";
 import Profile from "./profile/Profile";
 import Add from "./diaries/Add";
+import DiaryUpdate from "./diaries/DiaryUpdate";
 
 function App() {
   const isLoggedIn = useSelector((state) => state.isLoggedIn);
@@ -24,8 +25,8 @@ function App() {
           <Route path="/diaries" element={<Diaries />} />
           <Route path="/auth" element={<Auth />} />
           <Route path="/add" element={<Add />} />
-          <Route path="/profile" element={<Profile/>} />
-
+          <Route path="/profile" element={<Profile />} />
+          <Route path="/post/:id" element={<DiaryUpdate />} />
         </Routes>
       </section>
     </div>

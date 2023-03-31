@@ -25,7 +25,7 @@ function Diaries() {
       alignItems={"center"}
     >
       {posts &&
-        posts.map((item) => (
+        posts.map((item,index) => (
           <DiaryItem
             date={new Date(`${item.date}`).toLocaleDateString()}
             description={item.description}
@@ -33,8 +33,8 @@ function Diaries() {
             id={item._id}
             location={item.location}
             title={item.title}
-            key={item._id}
-            user={item._id}
+            key={index}
+            user={item.user}
             name={item.name}
           />
         ))}

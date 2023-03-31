@@ -89,7 +89,7 @@ const getPostById = async (req, res) => {
 
 const updatePost = async (req, res) => {
   const id = req.params.id;
-  const { title, description, location, date, image } = req.body;
+  const { title, description, location, image } = req.body;
 
   if (
     !title &&
@@ -98,7 +98,6 @@ const updatePost = async (req, res) => {
     description.trim() === "" &&
     !location &&
     location.trim() === "" &&
-    !date &&
     !user &&
     !image &&
     image.trim() === ""
@@ -111,9 +110,8 @@ const updatePost = async (req, res) => {
     post = await Post.findByIdAndUpdate(id, {
       title,
       description,
-      location,
       image,
-      date: new Date(`${date}`),
+      location,
     });
   } catch (err) {
     return console.log(err);

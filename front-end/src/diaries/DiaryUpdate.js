@@ -1,4 +1,11 @@
-import { Button, FormLabel, TextField, Typography } from "@mui/material";
+import {
+  Alert,
+  Button,
+  FormLabel,
+  Snackbar,
+  TextField,
+  Typography,
+} from "@mui/material";
 import { Box } from "@mui/system";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
@@ -6,6 +13,7 @@ import { getPostDetails, postUpdate } from "../api-helpers/helpers";
 import TravelExploreIcon from "@mui/icons-material/TravelExplore";
 
 const DiaryUpdate = () => {
+  const [open, setOpen] = useState(false);
   const [post, setPost] = useState();
   const [inputs, setInputs] = useState({
     title: "",
@@ -14,8 +22,8 @@ const DiaryUpdate = () => {
     imageUrl: "",
   });
   const id = useParams().id;
-    console.log(id);
-    
+  console.log(id);
+
   useEffect(() => {
     getPostDetails(id)
       .then((data) => {
@@ -106,12 +114,26 @@ const DiaryUpdate = () => {
               color="warning"
               sx={{ width: "50%", margin: "auto", mt: 2, borderRadius: 7 }}
               variant="contained"
+              onClick={() => setOpen(true)}
             >
-              Post
+              Update
             </Button>
           </Box>
         </form>
       )}
+      <Snackbar
+        open={open}
+        autoHideDuration={6000}
+        onClose={() => setOpen(false)}
+      >
+        <Alert
+          onClose={() => setOpen(false)}
+          severity="success"
+          sx={{ width: "100%" }}
+        >
+          This is a success message!
+        </Alert>
+      </Snackbar>
     </Box>
   );
 };

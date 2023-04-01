@@ -108,7 +108,7 @@ function DiaryItem({
           severity="success"
           sx={{ width: "100%" }}
         >
-          This is a success message!
+          Deleted successfully!
         </Alert>
       </Snackbar>
     </Card>

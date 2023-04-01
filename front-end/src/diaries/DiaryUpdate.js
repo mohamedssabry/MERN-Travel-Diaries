@@ -131,7 +131,7 @@ const DiaryUpdate = () => {
           severity="success"
           sx={{ width: "100%" }}
         >
-          This is a success message!
+          Updated successfully!
         </Alert>
       </Snackbar>
     </Box>

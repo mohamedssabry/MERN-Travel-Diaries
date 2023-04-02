@@ -2,8 +2,11 @@ import React, { useState } from "react";
 import TravelExploreIcon from "@mui/icons-material/TravelExplore";
 import { Box, Button, FormLabel, TextField, Typography } from "@mui/material";
 import { addPost } from "../api-helpers/helpers";
+import { useNavigate } from "react-router-dom";
 
-function Add() {
+function Add()
+{
+    const navigate = useNavigate();
   const [inputs, setInputs] = useState({
     title: "",
     description: "",
@@ -19,11 +22,17 @@ function Add() {
     }));
   };
 
+  const onResReceived = (data) =>
+  {
+    console.log(data);
+    navigate("/diaries");
+  }
+
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(inputs);
     addPost(inputs)
-      .then((res) => console.log(res))
+      .then(onResReceived)
       .catch((err) => console.log(err));
   };
 

@@ -58,7 +58,7 @@ function DiaryItem({
       <CardHeader
         avatar={
           <Avatar sx={{ bgcolor: "red" }} aria-label="recipe">
-            M
+            {name.charAt(0)}
           </Avatar>
         }
         action={
@@ -79,7 +79,7 @@ function DiaryItem({
         <hr />
         <Box paddingTop={1} display="flex">
           <Typography width="170px" fontWeight={"bold"} variant="div">
-            Mohamed Sabry
+            {name}:
           </Typography>
           <Typography variant="body2" color="text.secondary">
             {description}
